@@ -13,6 +13,7 @@ func Register(r *gin.Engine) {
 
 	ui.GET("/", serveFile("index.html", "text/html"))
 	ui.GET("/static/*any", gin.WrapH(http.FileServer(box)))
+	ui.GET("/manifest.json", gin.WrapH(http.FileServer(box)))
 }
 
 func serveFile(name, contentType string) gin.HandlerFunc {
