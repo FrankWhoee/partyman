@@ -7,20 +7,19 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import * as Icons from '@mui/icons-material';
-import {BottomNavigation, Container, Grid, Paper, Stack} from "@mui/material";
+import {BottomNavigation, Container, Grid, Paper, Stack, tooltipClasses} from "@mui/material";
 
 export default class Footer extends React.Component<any, any>{
     render(){
         return (
-            <Stack direction="column" justifyContent="center"
+            <Stack direction="column" justifyContent="center" textAlign={"center"}
                 sx={{
                     alignContent: 'center',
                     justifyContent: 'center',
-                    maxWidth: '100vw',
-                    width: '100vw',
+                    maxWidth: '100%',
+                    width: '100%',
                     height: '25vh',
-                    bottom: 0,
-                    position: 'fixed'
+                    bottom: 0
                 }}
             >
                     <Typography
@@ -37,22 +36,23 @@ export default class Footer extends React.Component<any, any>{
                         🎉 PARTYMAN
                     </Typography>
                 <br></br>
-                <Typography
-                    variant="body1"
-                    noWrap
-                    component="a"
-                    href="https://github.com/FrankWhoee/partyman"
-                    target="_blank"
-                    sx={{
-                        fontFamily: 'Staatliches',
-                        color: 'inherit',
-                        letterSpacing: '.1rem',
-                        textDecoration: 'none'
-                    }}
-                >
-                    <Icons.GitHub></Icons.GitHub>
-                </Typography>
-
+                <Box>
+                    <Typography
+                        variant="body1"
+                        noWrap
+                        component="a"
+                        href={'https://github.com/FrankWhoee/partyman'}
+                        target="_blank"
+                        sx={{
+                            fontFamily: 'Staatliches',
+                            color: 'inherit',
+                            letterSpacing: '.1rem',
+                            textDecoration: 'none'
+                        }}
+                    >
+                        <Icons.GitHub></Icons.GitHub>
+                    </Typography>
+                </Box>
             </Stack>
         );
     }
