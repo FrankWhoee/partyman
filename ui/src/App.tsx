@@ -10,6 +10,7 @@ import Grid2 from '@mui/material/Unstable_Grid2';
 import * as Icons from '@mui/icons-material';
 import Typography from "@mui/material/Typography";
 import Favourites from "./dashboard/favourites";
+import Recents from "./dashboard/recents";
 
 export let theme: ThemeKey;
 theme = "light";
@@ -40,7 +41,7 @@ export default function App() {
                               </Stack>
                           </Grid2>
                           <Grid2  xs={12}>
-                              <Card>xs=6</Card>
+                              <Recents></Recents>
                           </Grid2>
                       </Grid2>
                       <Grid2  xs={8}>
@@ -51,7 +52,7 @@ export default function App() {
                               </Stack>
                           </Grid2>
                           <Grid2  xs={12}>
-                              <Card>xs=6</Card>
+                              <Favourites></Favourites>
                           </Grid2>
                       </Grid2>
 
