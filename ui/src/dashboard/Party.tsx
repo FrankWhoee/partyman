@@ -16,6 +16,7 @@ import {
 import Grid2 from "@mui/material/Unstable_Grid2";
 import {styled} from '@mui/material/styles';
 import * as Icons from "@mui/icons-material";
+import {AgentAvatar} from "./AgentAvatar";
 
 
 function WinrateCircle(
@@ -68,49 +69,9 @@ const SmallAvatar = styled(Avatar)(({theme}) => ({
     background: 'black'
 }));
 
-interface AgentAvatarProps {
-    roleDisplayIcon: string;
-    avatarSize: number;
-    agentDisplayIcon: string;
-    playerName: string;
-    playerTitle: string;
-}
-
 interface StatBoxProps {
     label: string;
     value: string;
-}
-
-function AgentAvatar(props: AgentAvatarProps) {
-    return (<Box>
-
-        <Box
-            sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}>
-            <Badge
-                overlap="circular"
-                anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
-                badgeContent={
-                    <SmallAvatar
-                        sx={{filter: 'invert(100%)'}}
-                        src={props.roleDisplayIcon}/>
-                }
-            >
-                <Avatar sx={{width: props.avatarSize, height: props.avatarSize}} src={props.agentDisplayIcon}></Avatar>
-            </Badge>
-        </Box>
-        <br></br>
-        <Typography gutterBottom variant="body1" component="div" fontFamily={"Staatliches"}>
-            {props.playerName}
-        </Typography>
-        <Typography gutterBottom variant="caption" component="div" fontFamily={"Staatliches"}>
-            {props.playerTitle}
-        </Typography>
-
-    </Box>)
 }
 
 function StatBox(props: StatBoxProps) {
@@ -140,7 +101,7 @@ function PercentBox(props: PercentBoxProps) {
     </Grid2>)
 }
 
-export default class Favourites extends React.Component<any, any> {
+export default class Party extends React.Component<any, any> {
     render() {
         const avatarSize = 80;
 
@@ -150,7 +111,6 @@ export default class Favourites extends React.Component<any, any> {
                     component="img"
                     height="140"
                     image="https://media.valorant-api.com/maps/e2ad5c54-4114-a870-9641-8ea21279579a/splash.png"
-                    alt="green iguana"
                 >
 
                 </CardMedia>
@@ -264,31 +224,31 @@ export default class Favourites extends React.Component<any, any> {
                                         </Stack>
                                     </AccordionSummary>
                                     <Grid2 container xs={12}>
-                                    <StatBox
-                                        label={"FB CR"}
-                                        value={"78%"}
-                                    />
-                                    <StatBox
-                                        label={"Ult CR"}
-                                        value={"50%"}
-                                    />
-                                    <StatBox
-                                        label={"Ult Rate"}
-                                        value={"30%"}
-                                    />
-                                    <StatBox
-                                        label={"RT"}
-                                        value={"10.4s"}
-                                    />
-                                    <StatBox
-                                        label={"FB RT"}
-                                        value={"0.8s"}
-                                    />
+                                        <StatBox
+                                            label={"FB CR"}
+                                            value={"78%"}
+                                        />
+                                        <StatBox
+                                            label={"Ult CR"}
+                                            value={"50%"}
+                                        />
+                                        <StatBox
+                                            label={"Ult Rate"}
+                                            value={"30%"}
+                                        />
+                                        <StatBox
+                                            label={"RT"}
+                                            value={"10.4s"}
+                                        />
+                                        <StatBox
+                                            label={"FB RT"}
+                                            value={"0.8s"}
+                                        />
 
-                                    <StatBox
-                                        label={"Plant Rate"}
-                                        value={"80%"}
-                                    />
+                                        <StatBox
+                                            label={"Plant Rate"}
+                                            value={"80%"}
+                                        />
                                     </Grid2>
                                 </Accordion>
                             </Grid2>

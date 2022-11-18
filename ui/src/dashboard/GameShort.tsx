@@ -2,20 +2,19 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import {
-    Accordion,
-    AccordionSummary,
     Avatar,
     Badge,
     Card,
     CardContent,
     CardMedia,
     CircularProgress,
-    CircularProgressProps, LinearProgress, LinearProgressProps,
-    Stack
+    CircularProgressProps, LinearProgress, LinearProgressProps
 } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import {styled} from '@mui/material/styles';
 import * as Icons from "@mui/icons-material";
+import {valorantColours} from "../themes";
+import {AgentAvatar} from "./AgentAvatar";
 
 
 function WinrateCircle(
@@ -61,52 +60,9 @@ function LinearProgressWithLabel(props: LinearProgressProps & { value: number })
     );
 }
 
-const SmallAvatar = styled(Avatar)(({theme}) => ({
-    width: 15,
-    height: 15,
-    border: `2px solid black`,
-    background: 'black'
-}));
-
-interface AgentAvatarProps {
-    roleDisplayIcon: string;
-    avatarSize: number;
-    agentDisplayIcon: string;
-    playerName: string;
-    playerTitle: string;
-}
-
 interface StatBoxProps {
     label: string;
     value: string;
-}
-
-function AgentAvatar(props: AgentAvatarProps) {
-    return (<Box>
-
-        <Box
-            sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}>
-            <Badge
-                overlap="circular"
-                anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
-                badgeContent={
-                    <SmallAvatar
-                        sx={{filter: 'invert(100%)'}}
-                        src={props.roleDisplayIcon}/>
-                }
-            >
-                <Avatar sx={{width: props.avatarSize, height: props.avatarSize}} src={props.agentDisplayIcon}></Avatar>
-            </Badge>
-        </Box>
-        <br></br>
-        <Typography gutterBottom variant="caption" component="div" fontFamily={"Staatliches"}>
-            {props.playerName}
-        </Typography>
-    </Box>)
 }
 
 function StatBox(props: StatBoxProps) {
@@ -136,7 +92,7 @@ function PercentBox(props: PercentBoxProps) {
     </Grid2>)
 }
 
-export default class Recents extends React.Component<any, any> {
+export default class GameShort extends React.Component<any, any> {
     render() {
         const avatarSize = 60;
 
@@ -146,13 +102,17 @@ export default class Recents extends React.Component<any, any> {
                     component="img"
                     height="140"
                     image="https://media.valorant-api.com/maps/2c9d57ec-4431-9c5e-2939-8f9ef6dd5cba/splash.png"
-                    alt="green iguana"
                 >
-
                 </CardMedia>
                 <CardContent>
+                    <Typography variant="h4" sx={{letterSpacing: '.1rem'}}  fontFamily={"Staatliches"} >
+                        Bind
+                    </Typography>
+                    <Typography variant="h6" sx={{letterSpacing: '.1rem'}}  fontFamily={"Staatliches"} >
+                        SDN-01
+                    </Typography>
                     <Box textAlign={"center"}>
-                        <Typography gutterBottom variant="h1" color="attacker"  fontFamily={"Staatliches"} sx={{letterSpacing: '1rem'}} >
+                        <Typography variant="h1" sx={{letterSpacing: '1rem', color: valorantColours.defender}}  fontFamily={"Staatliches"} >
                             13-11
                         </Typography>
                     </Box>
